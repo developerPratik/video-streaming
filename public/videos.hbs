@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"></link>
+
+
+  <style>
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin-top: 20px;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      color: #404040;
+      position: relative;
+      background: radial-gradient(#333, hsl(200, 30%, 6%));
+    }
+
+
+
+    a {
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    .wrapper {
+      width: 450px;
+      margin: 30px auto 0;
+      background-color: #FFFFFF;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    header {
+      text-align: right;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #4B0082;
+      ;
+    }
+
+    header a {
+      font-size: 20px;
+      color: #FFFFFF;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      margin-left: 10px;
+      text-align: center;
+      display: inline-block;
+    }
+
+    header a:hover,
+    .list-mode header a.hide-list:hover {
+      background-color: #4B0082;
+      ;
+    }
+
+    header a.hide-list {
+      background-color: rgb(45, 0, 77);
+    }
+
+    .list-mode header a.hide-list {
+      background-color: #4B0082;
+      ;
+    }
+
+    .list-mode header a.show-list {
+      background-color: rgb(45, 0, 77);
+      ;
+    }
+
+    .container:after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .container {
+      padding: 10px 0 10px 10px;
+    }
+
+    .wrapper .box {
+      float: left;
+      width: 100px;
+      height: 100px;
+      margin: 0 10px 10px 0;
+      background-color: #CCCCCC;
+      -webkit-transition: all 1.0s ease;
+      -moz-transition: all 1.0s ease;
+      transition: all 1.0s ease;
+      transition: all 1.0s ease;
+    }
+
+    .wrapper.list-mode .container {
+      padding-right: 10px;
+    }
+
+    .add-button {
+      cursor: pointer;
+      width: 100%;
+      border: none;
+      background: #4B0082;
+      color: #FFF;
+      margin: 0 0 5px;
+      padding: 10px;
+      font-size: 15px;
+    }
+
+    .wrapper.list-mode .box {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+
+    <header style="background-color: 1e232c;">
+      <a href="/add" style="float: left;">
+        <button class="add-button">Add</button>
+      </a>
+
+      <a href="javascript:void(0)" class="show-list">
+        <i class="fa fa-th-list"></i>
+      </a>
+      <a href="javascript:void(0)" class="hide-list">
+        <i class="fa fa-th"></i>
+      </a>
+    </header>
+
+    <div clas="container">
+
+      <p>{{message}}</p>
+      {{#each videos}}
+
+      <a href='/play?id={{_id}}&v={{type}}'>
+        <div class="box">
+          <div style="float: left; height:100%; width:22%">
+            <img src="/images/play1.png" width="100px" height="100%" />
+          </div>
+          <p style="text-align: left; color:#FFF">{{title}}</p>
+
+
+
+        </div>
+      </a>
+
+      {{~/each}}
+
+
+
+    </div>
+  </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    $('.show-list').click(function () {
+      $('.wrapper').addClass('list-mode');
+    });
+
+    $('.hide-list').click(function () {
+      $('.wrapper').removeClass('list-mode');
+    });
+  </script>
+</body>
+
+</html>
